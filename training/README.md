@@ -6,10 +6,10 @@ Welcome to the Nubis training documentation. As of this writing this is very muc
 ## Table of Contents
 This Section contains the material we will cover in the classroom session. Eventually we hope to develop this into a self-guided training course that a person can work through at their own pace.
 
-0. Introduction (Not nubis introduction, just training day intro)
+0. Introduction
   - Go right into challenges in the current working processes
   - Lay out the necessity of making a change and the need for new operating methodologies
- - Brief introduction into Nubis (no details here, just saying we made this thing and we are going to talk about it today)
+ - Brief introduction into ideas for new working model
 ~ break time ~
 0. New operating principles (Best practices when working in the cloud)
  - New way of thinking (new working methodologies)
@@ -28,6 +28,12 @@ This Section contains the material we will cover in the classroom session. Event
  - What is Nubis?
  - What can Nubis do for me?
  - What does Nubis provide?
+  - &Distribution upgrades
+  - Package updates
+  - Consul & Confd integration
+  - Fluent integration
+  - Tainted Instances
+  - SSH Restrictions
 0. Exercise Two
  - Using Nubis to solve challenges
 0. Demonstrations
@@ -37,8 +43,10 @@ This Section contains the material we will cover in the classroom session. Event
  - Troubleshooting
 0. Working Labs
  - How do I set up my environment?
+ - Working with git & GitHub
  - Deploying the Nubis example application (Dpaste)
  - Deploying your own application using nubis-skel
+ - Updating system level packages
 
 ## Operational Documentation (HOWTOs)
 Here are some links to context relevant HOWTOs which are intended to guide you through many of the tasks you will need to perform using Nubis.
@@ -48,6 +56,7 @@ Here are some links to context relevant HOWTOs which are intended to guide you t
   - aws-vault overview (still might like a wrapper script for account setup)
  - Walk-through dpaste deploy
  - Build custom app with nubis-skel
+ - Detailed working example for git and GitHub
  - How do I build an AMI?
   - Features of nubis-base
    - /etc/nubis.d/*
