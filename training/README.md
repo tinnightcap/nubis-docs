@@ -26,15 +26,61 @@ This Section contains the material we will cover in the classroom session. Event
  - Creating understanding
 0. Nubis overview
  - What is Nubis?
+  - Standardized design
+  - Security compliance
+  - Reduced time-to-market
  - What can Nubis do for me?
  - What does Nubis provide?
-  - &Distribution upgrades
-  - Package updates
-  - Consul & Confd integration
-  - Fluent integration
-  - Tainted Instances
-  - SSH Restrictions
-0. Exercise Two
+  - Nubis accounts
+     - Accounts
+         - Application Accounts
+         - Sandbox accounts
+         - Multiple environments (Stage & Prod)
+      - Quarterly Updates
+         - Distribution upgrades
+         - Package updates
+         - New services
+         - Application Image Updates
+      - Security Updates
+      - Included Services
+         - Proxies
+         - NATs
+         - Consul Integration
+         - Fluent Integration
+         - Jumphosts
+      - User Management
+         - aws-vault
+         - MFA
+         - LDAP Integration
+      - Security Integration
+         - InfoSec security audit roll
+         - Network Security Monitoring (NSM)
+         - Integrated IP Blacklisting
+         - Log Integration with Mozilla Investigator (MIG)
+         - CloudTrail Integration
+      - Additional Services
+         - Cloud Health Integration
+         - Billing Support
+         - Tainted Resources
+         - Platform Monitoring ??
+         - High Availability (of all resources)
+  - Nubis deployments
+      - Deployment Overview
+         - Environments and how to use them
+      - Deployment repository
+         - Puppet configuration
+         - Application Code
+      - Terraform modules
+      - Recommended practices
+      - Architectural design services
+         - Example deployments
+         - nubis-skel
+         - AWS Solutions Architect
+      - Community support
+      - CI System
+      - Custom Monitors
+      - nubis-builder
+      - Rolling Back0. Exercise Two
  - Using Nubis to solve challenges
 0. Demonstrations
  - Account Upgrade
