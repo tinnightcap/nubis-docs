@@ -80,7 +80,8 @@ This Section contains the material we will cover in the classroom session. Event
       - CI System
       - Custom Monitors
       - nubis-builder
-      - Rolling Back0. Exercise Two
+      - Rolling Back
+0. Exercise Two
  - Using Nubis to solve challenges
 0. Demonstrations
  - Account Upgrade
