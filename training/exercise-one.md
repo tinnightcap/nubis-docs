@@ -1,6 +1,12 @@
 ﻿# Exercise One
 For this exercise the participants will break up into small groups. Then they will chose a topic and discuss how they can improve by using the principles discussed in the previous two modules.
 
+ - [Setup](#setup)
+ - [Organize into groups](#organize-into-groups)
+ - [Chose a Topic](#chose-a-topic)
+ - [Discuss Improvements](#discuss-improvements)
+ - [Presentations and Discussions](#presentations-and-discussions)
+
 ## Setup
 You will need to have large sticky pads or small white-boards for each team. These should be placed around the room so that each team can gather around without interfering with the other teams.
 
@@ -31,14 +37,18 @@ Topic Ideas:
  - Dependencies between applications
  - Developer access
  - Monitoring insights
- - 
+ - Rolling back
+ - Dependency management for applications
+ - Configuration management
+ - Configuration validation and testing
+ - Testing in general
 
 ## Discuss Improvements
 Once each team has chosen a topic, instruct them to discuss how they could improve on the topic by applying some of the new operating principles. They do not need to document in great detail, a word or two so they remember what they discussed is fine.
 
 This section is intended to take some time. Allow enough time for the teams to explore a number of possibilities. Do not rush this process. You should move around the room and make suggestions to help the teams along the correct path. Get a sense of the room and when the conversations begin to move off-topic that is a sign that it is time to move on.
 
-## Presentations & Discussions
+## Presentations and Discussions
 Have each team briefly introduce their topic and explain what they have discussed for improving the situation. Brief discussion is encouraged in order to further explore the operating principles. This is intended primarily to ensure that folks are gaining an understanding of the material and how they can apply it.
 
 The pace of this should be based on the students understanding. If they are getting it right off this portion can be shortened. If many of the students are struggling with the concepts, this is the place to explore that and foster discussions that lead to understanding.

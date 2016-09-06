@@ -1,20 +1,21 @@
 ﻿# New Operating Principles
 In the previous section we looked at some of the challenges we face in our current working model. We also looked at some ideas that we could use to improve upon our current working model. In this section we are going to focus in on cloud specific ideas and take a closer look at some agile principles and technologies.
 
-TODO: Linkify list
-
- - New way of thinking
- - Twelve Factor Review
- - Agile Development
- - Symantic versioning
- - Code Reviews
- - Decentralization
- - git & github
- - System level configuration
- - Image Upgrades
- - To Autoscale or Not to Autoscale
- - Tainted Instances
- - Security Requirements
+ - [New way of thinking](#new-way-of-thinking)
+ - [Twelve Factor Review](#twelve-factor-review)
+ - [Agile Development](#agile-development)
+ - [Symantic versioning](#symantic-versioning)
+ - [Code Reviews](#code-reviews)
+ - [Decentralization](#decentralization)
+ - [git and GitHub](#git-and-github)
+ - [System level configuration](#system-level-configuration)
+  - [Packer](#packer)
+  - [Puppet (masterless)](#puppet-masterless)
+  - [Consul and Confd](#consul-and-confd)
+ - [Image Upgrades](#image-upgrades)
+ - [To Autoscale or Not to Autoscale](#to-autoscale-or-not-to-autoscale)
+ - [Tainted Instances](#tainted-instances)
+ - [Security Requirements](#security-requirements)
 
 ## New way of thinking (new working methodologies)
 As we embark on this phase of the journey, I want to take a moment to recognize the fact that I am asking you to be open minded to some new ideas. I am going to present some concepts that may be new and possibly even uncomfortable. I encourage you to think critically about these ideas and ask questions as they come to mind. It is important that you understand the material, but it is more important that you understand the why behind it. If something does not make complete sense, please challenge the idea.
@@ -142,7 +143,7 @@ Here is another example. A single application resides in a datacenter and has a 
 As you can see,the cloud is not a magic bullet. It will not protect you from bad design decisions. In fact, the cloud provides so much flexibility that it makes it very easy to make poor architectural decisions. 
 
 
-##  git & github (Specific to how we are using it) (Intended to be a review only)
+##  git and GitHub
 We use [git](https://git-scm.com/) exclusively as our VCS. We use [GitHub](https://github.com/) as our repository store. I am not going to go into great detail about how to use git or GitHub, you can find some excellent tutorials on the web. Some good ones from Atlassian on git can be found [here](https://www.atlassian.com/git/tutorials/). GitHub has created a number of guides that you can find [here](https://guides.github.com/).
 
 What I am going to discuss here is a brief overview of how how specifically we use these tools. The basic work-flow looks like:
@@ -182,6 +183,10 @@ This work-flow encompasses many aspects of the working methodologies we have bee
 ##  System level configuration
 We are going to start to combine a number of the concepts we have been discussing. We must keep in mind the idea of immutable instances. If you recall, we discussed creating immutable instances with run-time tunables. In this section I am going to discuss both how we create the immutable instance images as well as how we adjust the run-time tunables.
 
+ - [Packer](#packer)
+ - [Puppet (masterless)](#puppet-masterless)
+ - [Consul and Confd](#consul-and-confd)
+
 ### Packer
 [Packer](https://www.packer.io/) is a tool used to create machine images from a simple configuration. In its simplest form it executes a number of shell commands which configure an image. The image is generally some pre-baked distribution image. This image is started up in a sandbox and the commands are run against it. Once complete the image is snap-shotted, creating a new image.
 
@@ -192,7 +197,7 @@ Keeping in line with the concept of decentralization we discussed previously it 
 
 Puppet masterless is fired off during image build time by packer. This process is documented [here](https://www.packer.io/docs/provisioners/puppet-masterless.html)
 
-### Consul & Confd
+### Consul and Confd
 [Consul](https://www.consul.io/) is a tool that is used as a key-value store. Run-time tunables are stored in the Consul key-value store. [Confd](http://www.confd.io/) is a tool that is installed on every system. It watches the key-value store and updates the local system in near-realtime.
 
 In conjunction these two tools provide the mechanism by which run-time tunables are configured for an application. For example, a firewall installed on a NAT instance blocks all outbound SMTP (outbound mail) traffic. Adding the SMTP port as a value to the appropriate key in Consul results in that port being opened on the NAT firewall.

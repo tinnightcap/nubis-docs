@@ -3,6 +3,44 @@ I am going to say some things today that are going to upset some people. I want 
 
 We have skills, expertise and experience in this organization that can rival any other shop out there. We simply need to take a look at some of the user experiences we are currently providing and see how we can improve on them. Some of the ideas you are going to hear today might sound a bit radical, they might be difficult to accept. I ask however, that you keep an open mind and try to look past the how, to the why. What I am going to present here is not perfect, it is a work in progress. Some of the decisions have been made, some of the ideas are central, however we have a long ways to go before we achieve success. That is where all of you come in, we need to come together as an organization and work together to try and provide the absolute best user experience we can.
 
+ - [On listening to our customers](#on-listening-to-our-customers)
+ - [Examples of current state](#examples-of-current-state)
+ - [How can we Improve](#how-can-we-improve)
+ - [Current operating model](#current-operating-model)
+  -  [Illustration of current challenges](#illustration-of-current-challenges)
+  - [List of issues in our current work-flows](#list-of-issues-in-our-current-work-flows)
+     - [Tainted resources](#tainted-resources)
+     - [Lack of package pinning](#lack-of-package-pinning)
+     - [Untested changes to production systems](#untested-changes-to-production-systems)
+     - [Lack of isolation between applications](#lack-of-isolation-between-applications)
+     - [Too many ways a system can be mutated](#too-many-ways-a-system-can-be-mutated)
+     - [Puppetmasters ensure eventual consistency](#puppetmasters-ensure-eventual-consistency)
+     - [Puppet's inability to guarantee symmetry among systems](#puppets-inability-to-guarantee-symmetry-among-systems)
+     - [A word on backups](#a-word-on-backups)
+ - [User experiences](#user-experiences)
+ - [Future Operating Model](#future-operating-model)
+  - [Specific areas of improvement](#specific-areas-of-improvement)
+     - [Automate all the things](#automate-all-the-things)
+     - [Built on cloud technology](#built-on-cloud-technology)
+     - [Provide self service opportunities](#provide-self-service-opportunities)
+     - [Create standards](#create-standards)
+     - [Treat datacenters as reusable components](#treat-datacenters-as-reusable-components)
+     - [Exterminate the "Human API"](#exterminate-the-human-api)
+     - [Use more community resources](#use-more-community-resources)
+     - [Revision everything](#revision-everything)
+     - [Transition work-flow to GitHub](#transition-work-flow-to-github)
+     - [Code Reviews](#code-reviews)
+     - [Provide Application isolation](#provide-application-isolation)
+     - [Provide a platform that can autoscale](#provide-a-platform-that-can-autoscale)
+     - [Bit for bit repeatable deployments](#bit-for-bit-repeatable-deployments)
+     - [Destroy Tainted resources](#destroy-tainted-resources)
+     - [Reduce time required to stand up a new application](#reduce-time-required-to-stand-up-a-new-application)
+     - [Provide analytical and trending monitoring for applications and systems](#provide-analytical-and-trending-monitoring-for-applications-and-systems)
+     - [Log / Audit everything](#log--audit-everything)
+     - [Provide transparency into web operations systems and deployment methodologies](#provide-transparency-into-web-operations-systems-and-deployment-methodologies)
+     - [Provide an open structure that enables us to better support the open web and the Mozilla community](#provide-an-open-structure-that-enables-us-to-better-support-the-open-web-and-the-mozilla-community)
+     - [Provide a better customer experience](#provide-a-better-customer-experience)
+
 ## On listening to our customers
 We spend a great deal of time designing systems. We are really good at that. Just about any one of us can be handed a technical problem to solve, go off and figure out how to solve it, then implement our solution. We totally have that covered. Where things start to get tricky for us is when we need to work with other people and collaborate on the solutions they are working on. We are not great at coordinating within IT. Now, I think we, as an organization, understand that and we are working on it. The new capability model and city map are the start of what, I hope, will be a more cohesive way of working within our organization. I must say however, that we are not very good, at all, when it comes to understanding our customers needs. We do not encourage feedback from our customers, as a mater of course. We do not engage our customers when selecting problems to solve, let alone when choosing technology or defining processes. If we intend to remain relevant, we must figure out how to include our customers at all levels. We must start genuinely listening to them and taking their feedback to heart. We have a tradition in IT that says "We know best. We will build you what you need", this attitude simply must change. While we may be experts at the technology we specialize in, when it comes to our customers needs, we do not know best. We do not begin to know best or, in many cases, even understand their needs, let alone their wants. We can do this. We can listen. We can fix our processes to include feedback from our users, and we must do this.
 
@@ -27,19 +65,17 @@ Late me take a moment to talk about people making manual changes. When I was wor
 
 There are several problems illustrated with that example. There was no way to ensure that all of the servers in the cluster were identical. There was no way to tell who or what might have made changes to the system. Due to the fact that we were hosting multiple applications on a single cluster, there was no way to know if my downgrading the library would not break another site. There were to many ways a system could be modified. There was a lack of monitoring resulting in the developer reporting the issue, this is not a good customer experience. The human process around troubleshooting did not include ensuring the environment was pristine on logout. There were no logs describing sudo user commands, which could have been used for historical information, I simply had to ask around and rely on peoples memory. Critical packages were not pinned at specific versions. The Puppetmaster methodology attempts to ensure eventual consistency but can only be deterministic about assets it is aware of. There are probably more things we can point out that are less than ideal in this example, but I hope you can agree that there must be a better way of operating.
 
-### List of issues in our current workflows:
+### List of issues in our current work-flows:
 Lets take a moment to dig into some of the challenges we currently face.
 
-TODO: Linkify list
-
- - Tainted resources
- - Lack of package pinning
- - Untested changes to production systems
- - Lack of isolation between applications
- - Too many ways a system can be mutated (changed)
- - Puppetmasters ensure eventual consistency
- - Puppet's inability to guarantee symmetry among systems
- - A word on backups
+ - [Tainted resources](#tainted-resources)
+ - [Lack of package pinning](#lack-of-package-pinning)
+ - [Untested changes to production systems](#untested-changes-to-production-systems)
+ - [Lack of isolation between applications](#lack-of-isolation-between-applications)
+ - [Too many ways a system can be mutated](#too-many-ways-a-system-can-be-mutated)
+ - [Puppetmasters ensure eventual consistency](#puppetmasters-ensure-eventual-consistency)
+ - [Puppet's inability to guarantee symmetry among systems](#puppets-inability-to-guarantee-symmetry-among-systems)
+ - [A word on backups](#a-word-on-backups)
 
 #### Tainted resources
 The idea of tainted resources will be quite new to those of you who have spent most of your careers lovingly hand crafting artisan systems. That is to say, for a long time we in IT have set up systems by hand, sure we sprinkle in a bit of bootstrapping automation and throw a little puppet on top, but we still find ourselves tweaking things by hand in order to get optimal performance. By definition these servers are tainted even before they get put into production, meaning there are customizations on the servers that are configured by hand, and not by automation.
@@ -97,31 +133,29 @@ This brings us to some high level ideals about what we are trying to accomplish.
  - Ensure basic security through; application isolation, ssl certificate automation, code review, InfoSec review (RRA), etc...
  - Provide a comprehensive, analytical, trending monitoring suite covering the entire application stack
 
-### Specific areas of improvement:
+### Specific areas of improvement
 Lets take a few minutes to dig into some details of some things we can do to help alleviate some of our current headaches while providing some of the benefits we were just discussing.
 
-TODO: Linkify list
-
- - Automate all the things
- - Built on cloud technology
- - Provide self service opportunities
- - Create standards
- - Treat datacenters as reusable components
- - Exterminate the "Human API"
- - Use more community resources
- - Revision everything (VCS)
- - Transition work-flow to github
- - Code Reviews
- - Provide Application isolation
- - Provide a platform that can autoscale
- - Bit for bit repeatable deployments
- - Destroy Tainted resources
- - Reduce time required to stand up a new application
- - Provide analytical and trending monitoring for applications and systems
- - Log / Audit everything
- - Provide transparency into web operations systems and deployment methodologies
- - Provide an open structure that enables us to better support the open web and the Mozilla community
- - Provide a better customer experience
+ - [Automate all the things](#automate-all-the-things)
+ - [Built on cloud technology](#built-on-cloud-technology)
+ - [Provide self service opportunities](#provide-self-service-opportunities)
+ - [Create standards](#create-standards)
+ - [Treat datacenters as reusable components](#treat-datacenters-as-reusable-components)
+ - [Exterminate the "Human API"](#exterminate-the-human-api)
+ - [Use more community resources](#use-more-community-resources)
+ - [Revision everything](#revision-everything)
+ - [Transition work-flow to GitHub](#transition-work-flow-to-github)
+ - [Code Reviews](#code-reviews)
+ - [Provide Application isolation](#provide-application-isolation)
+ - [Provide a platform that can autoscale](#provide-a-platform-that-can-autoscale)
+ - [Bit for bit repeatable deployments](#bit-for-bit-repeatable-deployments)
+ - [Destroy Tainted resources](#destroy-tainted-resources)
+ - [Reduce time required to stand up a new application](#reduce-time-required-to-stand-up-a-new-application)
+ - [Provide analytical and trending monitoring for applications and systems](#provide-analytical-and-trending-monitoring-for-applications-and-systems)
+ - [Log / Audit everything](#log--audit-everything)
+ - [Provide transparency into web operations systems and deployment methodologies](#provide-transparency-into-web-operations-systems-and-deployment-methodologies)
+ - [Provide an open structure that enables us to better support the open web and the Mozilla community](#provide-an-open-structure-that-enables-us-to-better-support-the-open-web-and-the-mozilla-community)
+ - [Provide a better customer experience](#provide-a-better-customer-experience)
 
 #### Automate all the things
 This is an important first step on our journey. We need to automate as many thing as possible. This removes many of the issues related to human error or "fat fingering" commands. This also has the potential to greatly reduce time to market for many of the services we offer. It is also a key milestone on the path towards self service. When we automate things we open ourselves up top the opportunity to put our substantial experience down in code so that our customers can take advantage of it time and again.
@@ -177,10 +211,10 @@ We have a habit here in IT of using community technologies whilst giving little 
 
 There does come a point when no tool exists that can do what we need to accomplish. In such cases we can create our own open source project to fit the need. This requires a lot of careful consideration as there is a lot involved in running a successful open source project. From releases to keeping things up to date to managing community contributions, it is a lot of work and requires an investment in time. It is almost always better to find a project that almost fits and submit patches.
 
-#### Revision everything (VCS)
+#### Revision everything
 If every part of the system is revisioned in some way then it will always be possible to recover to a known good state. That is the basis for using a Version Control System (VCS) for deploying assets in the cloud. Now, there are a number of additional benefits to using a VCS, but this point can not be overstated. It does not matter what changes are made to a system, so long as you know when the last working state was you can always revert.
 
-#### Transition work-flow to github
+#### Transition work-flow to GitHub
 GitHub provides a number of advantages over our current Subversion based work-flow. GitHub takes git as a VCS a step further. It makes it trivially simple to created patches and collaborate on them. The forking and branching methodologies that are inherent in git provide an opportunity to test code in a safe way that does not risk changes to production systems. Adding on the open collaborative enhancements that GitHub provides, gives us an easy to use, out of the box, experience that aligns quite well with agile methodologies.
 
 #### Code Reviews
