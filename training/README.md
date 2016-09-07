@@ -75,6 +75,7 @@ This Section contains the material we will cover in the classroom session. Event
  - [What does Nubis provide](./nubis-overview.md#what-does-nubis-provide)
   - [Nubis accounts](./nubis-overview.md#nubis-accounts)
      - [Accounts](./nubis-overview.md#accounts)
+         - [Account Diagram](#account-diagram)
          - [Multiple environments](./nubis-overview.md#multiple-environments)
       - [Quarterly Updates](./nubis-overview.md#quarterly-updates)
          - [Distribution upgrades](./nubis-overview.md#distribution-upgrades)
@@ -107,6 +108,7 @@ This Section contains the material we will cover in the classroom session. Event
   - [Nubis deployments](./nubis-overview.md#nubis-deployments)
       - [Deployment Overview](./nubis-overview.md#deployment-overview)
          - [Environments and how to use them](./nubis-overview.md#environments-and-how-to-use-them)
+         - [Deployment Workflow Diagram](./nubis-overview.md#deployment-workflow-diagram)
       - [Deployment repository](./nubis-overview.md#deployment-repository)
          - [Puppet configuration](./nubis-overview.md#puppet-configuration)
          - [Application Code](./nubis-overview.md#application-Code)
@@ -122,6 +124,7 @@ This Section contains the material we will cover in the classroom session. Event
       - [Custom Monitors](./nubis-overview.md#custom-monitors)
       - [nubis-base](./nubis-overview.md#nubis-base)
       - [nubis-builder](./nubis-overview.md#nubis-builder)
+      - [Build Deploy Diagram](./nubis-overview.md#build-deploy-diagram)
 0. Exercise Two
  - Using Nubis to solve challenges
 0. Demonstrations
