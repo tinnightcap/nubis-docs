@@ -206,14 +206,15 @@ The other task these instances perform is outbound firewalling. You can basicall
 
 ```bash
 # This populates the variables '$NUBIS_PROJECT' and '$NUBIS_ENVIRONMENT'
-eval $(curl -fs http://169.254.169.254/latest/user-data)
+NUBIS_PROJECT=$(nubis-metadata NUBIS_PROJECT)
+NUBIS_ENVIRONMENT=$(nubis-metadata NUBIS_ENVIRONMENT)
 
 # Look up the current list
-curl -s -X GET http://localhost:8500/v1/kv/nubis-nat-$NUBIS_ENVIRONMENT/$NUBIS_ENVIRONMENT/config/IptablesAllowTCP?raw=1
+consulate kv get nubis-nat-$NUBIS_ENVIRONMENT/$NUBIS_ENVIRONMENT/config/IptablesAllowTCP
 
 # Add the allowed ports in consul including any already existing
 ```bash
-curl -X PUT -d '[ "3128", "587", "443", "123" ]' http://localhost:8500/v1/kv/nubis-nat-$NUBIS_ENVIRONMENT/$NUBIS_ENVIRONMENT/config/IptablesAllowTCP
+consulate kv set nubis-nat-$NUBIS_ENVIRONMENT/$NUBIS_ENVIRONMENT/config/IptablesAllowTCP '[ "3128", "587", "443", "123" ]'
 ```
 
 ##### Consul Integration
@@ -232,16 +233,18 @@ An example of setting and retrieving values for the consul key-value store can b
 
 ``` bash
 # Source the consul connection details from the metadata api
-eval `curl -fq http://169.254.169.254/latest/user-data`
+NUBIS_STACK=$(nubis-metadata NUBIS_STACK)
+NUBIS_ENVIRONMENT=$(nubis-metadata NUBIS_ENVIRONMENT)
 
 # Set up the consul url
-CONSUL="http://localhost:8500/v1/kv/$NUBIS_STACK/$NUBIS_ENVIRONMENT/config"
+CONSUL_PREFIX="/$NUBIS_STACK/$NUBIS_ENVIRONMENT/config"
 
 # Generate and set the password for MySql
-DB_PASSWORD=`curl -s ${CONSUL}'/DB_PASSWORD?raw=1'`
+DB_PASSWORD=$(consulate kv get $CONSUL_PREFIX/DB_PASSWORD)
+curl -s ${CONSUL}'/DB_PASSWORD?raw=1'`
 if [ "$DB_PASSWORD" == "" ]; then
     DB_PASSWORD=`makepasswd --minchars=12 --maxchars=16`
-    curl -s -X PUT -d $DB_PASSWORD $CONSUL/DB_PASSWORD
+    consulate kv set $CONSUL_PREFIX/DB_PASSWORD $DB_PASSWORD
 fi
 ```
 
@@ -373,7 +376,7 @@ We discussed the idea of tainted resources previously so I will not go over that
 
 First, when a user logs onto an instance it is immediately marked as tainted. Thereafter upon login the message of the day (MOTD) will reflect the tainted status. There is no mechanism for un-tainting a resources.
 
-Second, the instance will automatically terminate and auto-scaling will re-spawn it. This provides you with a pristine, un-tainted resource. This is controlled with two keys in Consul. The first key controls how much time passes between an instance being marked tainted and termination. The second key can be used to disable termination of resources environment wide. This will not disable resource tainting, a resource is considered tainted regardless of weather tainted resource termination is enabled.
+Second, the instance will automatically terminate after a grace period, and auto-scaling will re-spawn it. This provides you with a pristine, un-tainted resource. This is controlled with two keys in Consul. The first key controls how much time passes between an instance being marked tainted and termination. The second key can be used to disable termination of resources environment wide. This will not disable resource tainting, a resource is considered tainted regardless of weather tainted resource termination is enabled.
 
 Implementation details can be found by reading the comment on [this pull request](https://github.com/nubisproject/nubis-base/pull/443). The tainting logic can be reviewed [here] (https://github.com/gozer/nubis-base/blob/09413f26dd94c02fdacc8d3725a96e480bbe45ea/nubis/puppet/files/nubis-tainted) and the termination script can be seen [here](https://github.com/gozer/nubis-base/blob/09413f26dd94c02fdacc8d3725a96e480bbe45ea/nubis/puppet/files/nubis-taint-reap).
 
