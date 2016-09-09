@@ -134,12 +134,7 @@ We deploy two types of accounts
   - Assumed to be tainted and not capable of production
 
 #### Account Diagram
-
-**TODO** Rework account diagram for clarity. We probably do not need to illustrate multiple VPCs, they should be called environments as that is what we are calling them in the rest of the document. Further, feedback suggests that this graphic is confusing and does not clearly communicate what we are trying to get across.
-
-NB: Graphic not added to git repo currently.
-
-![Nubis Deployment Workflow](media/account_diagram.png "Nubis Account Diagram")
+![Nubis Account Diagram](media/account_diagram.png "Nubis Account Diagram")
 
 ##### Multiple environments (Stage & Prod)
 Accounts can be provisioned with an arbitrary number of environments. Typically, a sandbox account is provisioned with a single sandbox environment. Production accounts are generally provisioned with three environments. The first is an admin environment which hosts the CI instance along with other necessary account administrative services. Next there is a staging environment which is where the CI instance automatically deploys code, builds images and runs tests. Finally there is a production environment which hosts the production facing application.
