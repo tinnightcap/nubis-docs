@@ -125,8 +125,9 @@ This Section contains the material we will cover in the classroom session. Event
       - [nubis-base](./nubis-overview.md#nubis-base)
       - [nubis-builder](./nubis-overview.md#nubis-builder)
       - [Build Deploy Diagram](./nubis-overview.md#build-deploy-diagram)
-0. Exercise Two
- - Using Nubis to solve challenges
+0. [Exercise Two](./exercise-two.md)
+ - [Chose a Topic](./exercise-two.md#chose-a-topic)
+ - [Diagram the deployment](./exercise-two.md#diagram-the-deployment)
 0. Demonstrations
  - Account Upgrade
  - Update an application AMI
