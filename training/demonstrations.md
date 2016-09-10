@@ -3,7 +3,7 @@ In this section we will walk through a few demonstrations describing how to perf
 
  - [Deploy a new application](#deploy-a-new-application)
  - [Deploy new application code](#deploy-new-application-code)
- - [Continuous Integration work-flow)](#continuous-integration-work-flow)
+ - [Continuous Integration work-flow](#continuous-integration-work-flow)
  - [Upgrade an account](#upgrade-an-account)
  - [Troubleshooting](#troubleshooting)
 

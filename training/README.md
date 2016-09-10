@@ -129,7 +129,7 @@ This section contains the material we will cover in the classroom session. Event
 0. [Demonstrations](./demonstrations.md)
  - [Deploy a new application](./demonstrations.md#deploy-a-new-application)
  - [Deploy new application code](./demonstrations.md#deploy-new-application-code)
- - [Continuous Integration work-flow)](./demonstrations.md#continuous-integration-work-flow)
+ - [Continuous Integration work-flow](./demonstrations.md#continuous-integration-work-flow)
  - [Upgrade an account](./demonstrations.md#upgrade-an-account)
  - [Troubleshooting](./demonstrations.md#troubleshooting)
 0. [Working Labs](./working-labs.md)
