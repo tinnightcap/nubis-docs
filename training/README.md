@@ -128,18 +128,18 @@ This Section contains the material we will cover in the classroom session. Event
 0. [Exercise Two](./exercise-two.md)
  - [Chose a Topic](./exercise-two.md#chose-a-topic)
  - [Diagram the deployment](./exercise-two.md#diagram-the-deployment)
-0. Demonstrations
- - Account Upgrade
- - Update an application AMI
- - Application Deployment
- - Troubleshooting
- - The CI work-flow (include roll-back)
-0. Working Labs
- - How do I set up my environment?
- - Working with git & GitHub
- - Deploying the Nubis example application (Dpaste)
- - Deploying your own application using nubis-skel
- - Updating system level packages
+0. [Demonstrations](./demonstrations.md)
+ - [Deploy a new application](./demonstrations.md#deploy-a-new-application)
+ - [Deploy new application code](./demonstrations.md#deploy-new-application-code)
+ - [Continuous Integration work-flow)](./demonstrations.md#continuous-integration-work-flow)
+ - [Upgrade an account](./demonstrations.md#upgrade-an-account)
+ - [Troubleshooting](./demonstrations.md#troubleshooting)
+0. [Working Labs](./working-labs.md)
+ - [Setting up your local environment](./working-labs.md#setting-up-your-local-environment)
+ - [Working with git & GitHub](./working-labs.md#working-with-git--github)
+ - [Deploying the Nubis example application Dpaste](./working-labs.md#deploying-the-nubis-example-application-dpaste)
+ - [Deploying your own application using nubis-skel](./working-labs.md#deploying-your-own-application-using-nubis-skel)
+ - [Updating system level packages](./working-labs.md#updating-system-level-packages)
 
 ## Operational Documentation (HOWTOs)
 Here are some links to context relevant HOWTOs which are intended to guide you through many of the tasks you will need to perform using Nubis.
