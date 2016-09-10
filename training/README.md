@@ -1,10 +1,8 @@
-﻿**NOTE: I am not currently soliciting feedback. If you stumble upon this material, I ask that you keep your notes and comments to yourself until I remove this note. At that time I will be actively soliciting feedback as well as requesting a number of reviews. As this is course development and not simply documentation, I need time and space to work through my own creative process. Thank you for your understanding.**
-
-# Index
+﻿# Index
 Welcome to the Nubis training documentation. As of this writing this is very much a work in progress. The table of contents is currently designed to help me to design the course content and help me keep track of my progress and what I have left to accomplish. This list will eventually link out to the content covered by each section.
 
 ## Table of Contents
-This Section contains the material we will cover in the classroom session. Eventually we hope to develop this into a self-guided training course that a person can work through at their own pace.
+This section contains the material we will cover in the classroom session. Eventually we hope to develop this into a self-guided training course that a person can work through at their own pace.
 
 0. [Introduction](./introduction.md)
  - [On listening to our customers](./introduction.md#on-listening-to-our-customers)
