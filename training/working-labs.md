@@ -10,8 +10,6 @@ In this section we will be setting up our tool chain and then putting hands on k
 ## Setting up your local environment
 In this working lab the instructor will help the students to get their local environments set up to work with Nubis. The documentation on the process is [here](https://github.com/Nubisproject/nubis-docs/blob/master/PREREQUISITES.md).
 
-**TODO** Update [prerequisites](https://github.com/Nubisproject/nubis-docs/blob/master/PREREQUISITES.md) doc
-
 ## Working with git & GitHub
 In this lab each student will clone the nubis-dpaste repository. The students will then create a feature branch, make a small change and push that back to GitHub. They will then make a pull-request back to the master branch of their fork.
 
