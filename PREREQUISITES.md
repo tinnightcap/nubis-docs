@@ -188,12 +188,14 @@ echo "PATH=/path/to/your/clone/of/nubis-builder/bin:$PATH" >> ~/.bashrc
 ```
 Of course in both of these examples you will need to change */path/to/your/clone/of* to the actual path on your system.
 
-### Terraform (0.6.14+)
+### Terraform (0.6.16+)
 Get it from [Terraform.io](https://www.terraform.io/downloads.html). We use Terraform for deploying everything from the account to the application. If you are interested in the decision to use Terraform over Cloudformation you can read about it [here](./TEMPLATING.MD).
 
 It's a simple Go binary bundle, just unzip and drop in your $PATH
 
-Make sure you obtain at least version 0.6.14
+Make sure you obtain at least version 0.6.16, but less than 0.7.
+
+Try [this path](https://releases.hashicorp.com/terraform/0.6.16/).
 
 ### credstash (1.11.0+)
 [Credstash](https://github.com/fugue/credstash) is a tool for managing our secrets into DynamoDB and KMS. It's a dependency we are hoping to get rid of, but for now, you'll need in your $PATH as well.
