@@ -24,11 +24,9 @@ Instruct the teams to each chose a topic. This should be a real topic and not a 
 
 Have the team write the topic on the top of their paper.
 
-The topics can be anything, however it needs to be something that can be solved by applying some of the operating principles previously discussed.
+The topics can be anything, however it needs to be something that can be solved by applying some of the operating principles previously discussed. It is best if each team has a unique topic. This enables a broader opportunity for collaborative discussion later on.
 
 If teams are having difficulty coming up with a topic suggestions can be made from the following list. It is important for teams to try and come up with their own topic so that it is relevant and meaningful to them.
-
-TODO: Add more ideas for topics
 
 Topic Ideas:
  - Application deployment process
