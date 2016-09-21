@@ -16,9 +16,7 @@ In this lab each student will clone the nubis-dpaste repository. The students wi
 **TODO** Write a document containing specific instructions (copy-paste style). Figure out what change can be made to Dpaste to personalize the deployment to each student. I am thinking updating the top-of-page text to their nic or name.
 
 ## Deploying the Nubis example application (Dpaste)
-In this lab the students will be walked through deploying their application into the training account. They will use Terraform to push their locally modified Dpaste into the training environment.
-
-**TODO** Update nubis-dpaste [README.md](https://github.com/nubisproject/nubis-dpaste/blob/master/README.md) document
+In this lab the students will be walked through deploying their application into the training account. They will use Terraform to push their locally modified Dpaste into the training environment. The documentation can be found in the [README.md](https://github.com/nubisproject/nubis-dpaste/blob/master/README.md) document.
 
 ## Deploying your own application using nubis-skel
 In this lab, the students will be shown how to make use of nubis-skel to rapidly prepare a local deployment. They will add the necessary configuration to be able to deploy a single EC2 instance into the training account. Ideally they will be able to log onto the instance. If time permits the lab can be extended to add custom code, roll new images and push them into the training account as well.
