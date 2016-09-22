@@ -20,7 +20,7 @@ Updating Sandbox [video](https://youtu.be/rBGvMJGXRR4)
 ## Continuous Integration work-flow
 Here we will see how to promote our application code from the staging environment into the production environment. We will discover that we deployed bad code and will then see how to roll back to a working state.
 
-CI [video](https://youtu.be/MTe_seH82bk)
+Continuous Integration [video](https://youtu.be/MTe_seH82bk)
 
 ## Upgrade an account
 In this demonstration we will see how to update a Nubis account that is running a Nubis deployed application.
